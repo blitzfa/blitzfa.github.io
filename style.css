@@ -1,0 +1,402 @@
+@font-face {
+  font-family: Bungee;
+  src: url(./fonts/Bungee/Bungee-Regular.ttf);
+}
+
+@font-face {
+  font-family: Montserrat;
+  src: url(./fonts/Montserrat/static/Montserrat-Medium.ttf);
+}
+
+@font-face {
+  font-family: Montserrat-semi-bold;
+  src: url(./fonts/Montserrat/static/Montserrat-SemiBold.ttf);
+}
+
+* {
+  font-family: Bungee;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+a,
+a:hover,
+a:focus,
+a:active {
+  text-decoration: none;
+  color: inherit;
+}
+
+.container {
+  max-width: 1320px;
+  height: inherit;
+  margin: 0rem auto;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+.navbar {
+  position: absolute;
+  width: 100%;
+  z-index: 2;
+}
+
+.nav-items {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: #ffffff;
+}
+
+.nav-items ul {
+  display: flex;
+  list-style: none;
+  gap: 30px;
+}
+.nav-items ul li {
+  font-size: 1.125rem;
+}
+
+.nav-items .logo {
+  font-size: 2.18rem;
+}
+
+/* Hero Section  */
+
+#hero {
+  width: 100%;
+  /* height: 90vh; */
+  /* background-color: #3A98B9; */
+  position: relative;
+}
+
+#hero:before {
+  content: "";
+  position: absolute;
+  z-index: -10;
+  bottom: 35%;
+  width: 100%;
+  height: 100%;
+  background-color: #3a98b9;
+}
+
+#hero .hero-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 70%;
+  margin: 0 auto;
+  padding-top: 10%;
+}
+
+.hero-content h1 {
+  font-size: 2.8rem;
+  color: #ffd3a3;
+}
+
+.hero-content p {
+  color: #eeeeee;
+  font-size: 1.125rem;
+  text-align: center;
+}
+
+.hero-content button {
+  background-color: #fff1dc;
+  width: 30%;
+  height: 50px;
+  border-radius: 100px;
+  border: none;
+  margin: 20px;
+  cursor: pointer;
+  font-family: Montserrat;
+  font-weight: bold;
+  font-size: 1rem;
+}
+
+#hero .hero-img-parent {
+  display: flex;
+  justify-content: center;
+}
+#hero .hero-img {
+  width: 1000px;
+  height: auto;
+  /* position: absolute;
+    top: 80%;
+    transform: translate(-50%);
+    left: 50%; */
+}
+
+/* About & Vision Section */
+
+#about,
+#vision,
+#contact,
+#products {
+  margin-top: 2rem;
+  padding: 3rem 0;
+}
+
+.row {
+  display: flex;
+}
+
+.reverse {
+  flex-direction: row-reverse;
+}
+
+.bg-grey {
+  background-color: #eeeeee;
+}
+
+.row .about-img,
+.row .vision-img {
+  width: 60%;
+  padding: 1rem;
+  height: 400px;
+}
+
+.row .about-img img,
+.row .vision-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: fill;
+}
+.row .about-content,
+.row .vision-content {
+  width: 40%;
+  padding: 1rem;
+}
+
+.row .about-content {
+  text-align: end;
+}
+
+.row .about-content h1,
+.row .vision-content h1 {
+  font-size: 2.8rem;
+  color: #3a98b9;
+}
+
+.row .about-content p,
+.row .vision-content p {
+  font-family: Montserrat !important;
+  font-size: 1.2rem;
+}
+
+/* Products */
+
+#products h1 {
+  font-size: 2.8rem;
+  color: #3a98b9;
+  text-align: center;
+}
+
+#products .product-card {
+  display: flex;
+  flex-direction: column;
+  background-color: #eeeeee;
+  width: 45%;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+  border-radius: 20px;
+}
+
+#products .product-card img {
+  width: 100%;
+  height: auto;
+}
+
+.product-desc {
+  display: flex;
+  padding: 1rem;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+.product-desc .about-product {
+  width: 100%;
+}
+.product-desc .about-product h2 {
+  font-size: 2rem;
+  font-family: Montserrat-semi-bold !important;
+  margin: 1rem 0;
+}
+.product-desc .about-product p {
+  font-size: 1rem;
+
+  font-family: Montserrat !important;
+}
+.product-desc .know-more {
+  width: 20%;
+}
+.product-desc .know-more div a {
+  font-size: 1rem;
+  font-family: Montserrat !important;
+  font-weight: bold;
+}
+
+.product-desc button,
+form button {
+  background-color: #ffd3a3;
+  width: 100%;
+  height: 50px;
+  border-radius: 10px;
+  border: none;
+  margin: 20px;
+  cursor: pointer;
+  font-family: Montserrat;
+  font-weight: bold;
+}
+
+/* Contact US */
+
+#contact {
+  background-color: #eeeeee;
+}
+
+#contact h1 {
+  font-size: 2.8rem;
+  color: #3a98b9;
+  text-align: center;
+}
+
+#contact .contact-us-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 50%;
+  margin: 0 auto;
+}
+form input,
+form textarea {
+  font-family: Montserrat-semi-bold;
+}
+textarea {
+  resize: none;
+  border-radius: 7px;
+  border: transparent;
+  padding: 1rem;
+}
+
+textarea:focus,
+input:focus {
+  outline: none;
+}
+
+.form-group {
+  display: flex;
+  gap: 20px;
+  width: 100%;
+}
+.field-group {
+  width: 100%;
+}
+
+.field-group * {
+  display: block;
+}
+.field-group input,
+.field-group textarea {
+  width: 100%;
+}
+
+input {
+  border-radius: 6px;
+  height: 2rem;
+  padding: 1rem;
+  border: transparent;
+}
+
+/* Responsive */
+
+@media screen and (max-width: 1100px) {
+  #hero .hero-img {
+    width: 800px;
+  }
+}
+@media screen and (max-width: 1000px) {
+  html {
+    font-size: 14px;
+  }
+}
+@media screen and (max-width: 870px) {
+  #hero .hero-content {
+    padding-top: 14%;
+  }
+  #about .about-img,
+  #about .about-content,
+  #vision .vision-img,
+  #vision .vision-content {
+    text-align: center;
+    width: 80%;
+  }
+
+  .row .vision-img,
+  .row .about-img {
+    height: auto;
+  }
+  .row {
+    flex-direction: column-reverse;
+    align-items: center;
+  }
+  #hero .hero-img {
+    width: 700px;
+  }
+
+  #hero:before {
+    bottom: 25%;
+  }
+  #contact .contact-us-form {
+    width: 70%;
+  }
+  #about,
+  #vision,
+  #contact,
+  #products {
+    margin-top: 0;
+  }
+}
+
+@media screen and (max-width: 780px) {
+  html {
+    font-size: 12px;
+  }
+  #hero .hero-img {
+    width: 90%;
+  }
+  #products .product-card {
+    width: 60%;
+  }
+}
+
+@media screen and (max-width: 670px) {
+  html {
+    font-size: 10px;
+  }
+  .hero-content button {
+    width: 60%;
+  }
+  #contact .contact-us-form {
+    width: 90%;
+  }
+}
+
+@media screen and (max-width: 580px) {
+  #hero h1 {
+    font-size: 2.5rem;
+  }
+}
+@media screen and (max-width: 500px) {
+  #hero h1 {
+    text-align: center;
+  }
+  #hero .hero-content {
+    padding-top: 20%;
+  }
+  .nav-items ul {
+    gap: 20px;
+  }
+}
