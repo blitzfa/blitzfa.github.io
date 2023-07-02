@@ -132,7 +132,7 @@ a:active {
   .nav-items.responsive ul {
     display: block;
     position: absolute;
-    top: 55px;
+    top: 100%;
     right: 0;
     background-color: #f9f9f9;
     width: 100%;
@@ -388,6 +388,7 @@ form button {
   width: 70%;
   margin: 1rem auto 3rem auto;
   text-align: center;
+  font-size: 1.2rem;
 }
 
 /* Contact US */
@@ -530,6 +531,9 @@ input {
   }
 }
 @media screen and (max-width: 500px) {
+  .navbar {
+    padding: 1rem 0;
+  }
   #hero h1 {
     text-align: center;
   }
