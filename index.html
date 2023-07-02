@@ -13,9 +13,49 @@
           <div class="logo">Blitzfa</div>
           <ul>
             <li><a href="#about">About Us</a></li>
-            <li><a href="#products">Products</a></li>
+            <!-- <li><a href="#products">Products</a></li> -->
+
+            <li class="dropdown">
+              <button class="dropbtn">
+                products
+                <!-- <i class="fa fa-caret-down"></i> -->
+              </button>
+              <div class="dropdown-content">
+                <a href="#">Indusvale</a>
+              </div>
+            </li>
+
             <li><a href="#contact">Contact Us</a></li>
           </ul>
+          <button class="hamburger">
+            <?xml version="1.0" encoding="utf-8"?><!-- Uploaded to: SVG Repo, www.svgrepo.com, Generator: SVG Repo Mixer Tools -->
+            <svg
+              width="30px"
+              height="30px"
+              viewBox="0 0 24 24"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M4 18L20 18"
+                stroke="#ffffff"
+                stroke-width="2"
+                stroke-linecap="round"
+              />
+              <path
+                d="M4 12L20 12"
+                stroke="#ffffff"
+                stroke-width="2"
+                stroke-linecap="round"
+              />
+              <path
+                d="M4 6L20 6"
+                stroke="#ffffff"
+                stroke-width="2"
+                stroke-linecap="round"
+              />
+            </svg>
+          </button>
         </div>
       </div>
     </nav>
@@ -48,10 +88,12 @@
           <div class="about-content">
             <h1>About Us</h1>
             <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique
-              voluptatum minima quas veniam alias optio aperiam nostrum eos
-              nemo, asperiores iure! Alias eum vel deleniti dolorem eos! Eaque
-              accusantium, magni laudantium excepturi minus possimus
+              Blitzfa eCommerce is a brainchild of people passionate about the
+              vision of a connected, productive, and prosperous world. We are
+              truly inspired by our rich cultural heritage and we want to make
+              it richer in the 21st century and beyond. We dont want you to
+              spend your life alone just scrolling mindless content. Experience
+              a lifestyle that keeps you at the top!
             </p>
           </div>
         </div>
@@ -66,10 +108,13 @@
           <div class="vision-content">
             <h1>Vision</h1>
             <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique
-              voluptatum minima quas veniam alias optio aperiam nostrum eos
-              nemo, asperiores iure! Alias eum vel deleniti dolorem eos! Eaque
-              accusantium, magni laudantium excepturi minus possimus
+              We believe in the “Make in India” and “Innovate in India”
+              movements. Our vision is to give platforms to people to come
+              together and explore their untapped, unexplored potential, give
+              their own twist to the craft, and build a legacy. Instead of a
+              business platform, we are determined to give our people avenues to
+              connect. The purpose of your connect is left to you, let us
+              provide the innovation for you!
             </p>
           </div>
         </div>
@@ -78,15 +123,22 @@
     <section id="products">
       <div class="container">
         <h1>Our Products</h1>
+        <p class="product-subheading">
+          Dive into life with our suit of products that adds a new dimension to
+          your looks, to your space, to your people. Explore and be a part of
+          building a new future, where your time is valued and gets you
+          unthinkable experiences!
+        </p>
         <div class="product-card">
           <img src="./images/indusvale.png" />
           <div class="product-desc">
             <div class="about-product">
               <h2>Indusvale</h2>
               <p>
-                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Omnis
-                similique tenetur quam iure vitae, deserunt necessitatibus
-                aspernatur quidem facere ex.
+                Adopting the name from Indus Valley Civilization, IndusVale is
+                about the people, and how they express themselves in their
+                colors, in their clothing, in their lifestyle, how they connect,
+                how they do business, and everything under the sun.
               </p>
             </div>
             <button>Know more</button>
@@ -131,5 +183,18 @@
         </form>
       </div>
     </section>
+    <script>
+      const hamburger = document.querySelector(".hamburger");
+      const navItems = document.querySelector(".nav-items");
+
+      hamburger.addEventListener("click", function () {
+        navItems.classList.toggle("responsive");
+      });
+
+      const dropdown = document.querySelector(".dropdown");
+      dropdown.addEventListener("click", () => {
+        dropdown.classList.toggle("active");
+      });
+    </script>
   </body>
 </html>
