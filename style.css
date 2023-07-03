@@ -178,6 +178,7 @@ a:active {
     background-color: inherit;
     box-shadow: none;
     display: block;
+    background-color: #ddd;
   }
 
   .nav-items .dropdown .dropdown-content a {
@@ -236,6 +237,9 @@ a:active {
   border: none;
   margin: 20px;
   cursor: pointer;
+}
+
+.hero-content button a {
   font-family: Montserrat;
   font-weight: bold;
   font-size: 1rem;
@@ -358,15 +362,11 @@ a:active {
 }
 .product-desc .about-product p {
   font-size: 1rem;
+  font-family: Montserrat !important;
+}
 
-  font-family: Montserrat !important;
-}
-.product-desc .know-more {
-  width: 20%;
-}
-.product-desc .know-more div a {
-  font-size: 1rem;
-  font-family: Montserrat !important;
+.product-desc button a {
+  font-family: Montserrat-semi-bold !important;
   font-weight: bold;
 }
 
@@ -531,9 +531,6 @@ input {
   }
 }
 @media screen and (max-width: 500px) {
-  .navbar {
-    padding: 1rem 0;
-  }
   #hero h1 {
     text-align: center;
   }
@@ -551,4 +548,49 @@ input {
       width: 80%;
     }
   }
+}
+
+.main-img {
+  text-align: center;
+  padding-top: 8rem;
+}
+.main-img img {
+  width: 100%;
+  max-width: 800px;
+  height: 100%;
+}
+.quote-container {
+  background-color: #fff1dc;
+  text-align: center;
+  padding: 1rem;
+  font-size: 1.2rem;
+  border-radius: 22px;
+}
+
+.quote {
+  font-family: Montserrat;
+}
+
+.product--desc {
+  margin: 2rem;
+}
+.product--desc p {
+  font-family: Montserrat;
+  font-size: 1.2rem;
+  text-align: justify;
+}
+
+.indusvale-images {
+  display: flex;
+  width: 100%;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.indusvale-images .indusvale-image {
+  width: 500px;
+  height: 400px;
+  background-color: lightgrey;
+  border-radius: 20px;
 }
