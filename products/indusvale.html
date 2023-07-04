@@ -12,7 +12,7 @@
         <div class="nav-items">
           <div class="logo"><a href="../index.html">Blitzfa</a></div>
           <ul>
-            <li><a href="#about">About Us</a></li>
+            <li><a href="../index.html#about">About Us</a></li>
             <!-- <li><a href="#products">Products</a></li> -->
 
             <li class="dropdown">
@@ -21,11 +21,11 @@
                 <!-- <i class="fa fa-caret-down"></i> -->
               </button>
               <div class="dropdown-content">
-                <a href="#">Indusvale</a>
+                <a href="../products/indusvale.html">Indusvale</a>
               </div>
             </li>
 
-            <li><a href="#contact">Contact Us</a></li>
+            <li><a href="../index.html#contact">Contact Us</a></li>
           </ul>
           <button class="hamburger">
             <?xml version="1.0" encoding="utf-8"?><!-- Uploaded to: SVG Repo, www.svgrepo.com, Generator: SVG Repo Mixer Tools -->
@@ -95,7 +95,7 @@
         </p>
       </div>
     </div>
-    <div class="container" style="margin: 2rem">
+    <div class="container">
       <div class="indusvale-images">
         <div class="indusvale-image"></div>
         <div class="indusvale-image"></div>
@@ -114,5 +114,18 @@
         </p>
       </div>
     </div>
+    <script>
+      const hamburger = document.querySelector(".hamburger");
+      const navItems = document.querySelector(".nav-items");
+
+      hamburger.addEventListener("click", function () {
+        navItems.classList.toggle("responsive");
+      });
+
+      const dropdown = document.querySelector(".dropdown");
+      dropdown.addEventListener("click", () => {
+        dropdown.classList.toggle("active");
+      });
+    </script>
   </body>
 </html>
