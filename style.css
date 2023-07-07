@@ -562,12 +562,31 @@ input {
   max-width: 800px;
   height: 100%;
 }
-.quote-container {
+
+.quote-parent {
   background-color: #fff1dc;
+  margin-bottom: 2rem;
+}
+
+.quote-container {
   text-align: center;
-  padding: 1rem;
+  padding: 2rem;
   font-size: 1.2rem;
   border-radius: 22px;
+  width: 60%;
+  margin: auto;
+}
+
+.apostrophe {
+  font-size: 5rem;
+  line-height: 1;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  margin: 1rem;
+  color: rgba(0, 0, 0, 0.75);
 }
 
 .quote {
@@ -588,7 +607,7 @@ input {
   width: 100%;
   justify-content: space-around;
   flex-wrap: wrap;
-  gap: 1rem;
+  gap: 2rem;
 }
 
 .indusvale-images .indusvale-image {
