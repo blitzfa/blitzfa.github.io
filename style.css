@@ -66,6 +66,10 @@ a:active {
 .nav-items .logo {
   font-size: 2.18rem;
 }
+.logo-img {
+  width: 66px;
+  height: 50px;
+}
 
 .hamburger {
   width: 30px;
@@ -289,7 +293,24 @@ a:active {
   background-color: #eeeeee;
 }
 
-.row .about-img,
+.overlay {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  z-index: 0;
+  background-color: rgba(255, 255, 255, 0.5);
+}
+/* .row .about-img, */
+.about-img {
+  position: relative;
+  height: 400px;
+  width: 100%;
+}
+.about-content {
+  position: absolute;
+  text-align: center;
+  width: 90%;
+}
 .row .vision-img {
   width: 60%;
   padding: 1rem;
@@ -301,15 +322,22 @@ a:active {
   width: 100%;
   height: 100%;
   object-fit: fill;
+  border-radius: 10px;
 }
-.row .about-content,
+/* .row .about-content, */
 .row .vision-content {
   width: 40%;
   padding: 1rem;
 }
 
-.row .about-content {
+/* .row .about-content {
   text-align: end;
+} */
+.row .about-content {
+  text-align: center;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
 .row .about-content h1,
@@ -320,7 +348,7 @@ a:active {
 
 .row .about-content p,
 .row .vision-content p {
-  font-family: Montserrat !important;
+  font-family: Montserrat-semi-bold !important;
   font-size: 1.2rem;
 }
 

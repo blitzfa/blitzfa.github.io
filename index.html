@@ -14,7 +14,18 @@
     <nav class="navbar">
       <div class="container">
         <div class="nav-items">
-          <div class="logo"><a href="/">Blitzfa</a></div>
+          <div class="logo">
+            <a
+              href="/"
+              style="
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                gap: 10px;
+              "
+              ><img class="logo-img" src="./images/logo.png" /> Blitzfa
+            </a>
+          </div>
           <ul>
             <li><a href="#about">About Us</a></li>
             <!-- <li><a href="#products">Products</a></li> -->
@@ -89,9 +100,21 @@
       <div class="container">
         <div class="row">
           <div class="about-img">
-            <img src="./images/about-img.png" />
+            <div class="overlay"></div>
+            <div class="about-content">
+              <h1>About Us</h1>
+              <p>
+                Blitzfa eCommerce is a brainchild of people passionate about the
+                vision of a connected, productive, and prosperous world. We are
+                truly inspired by our rich cultural heritage and we want to make
+                it richer in the 21st century and beyond. We dont want you to
+                spend your life alone just scrolling mindless content.
+                Experience a lifestyle that keeps you at the top!
+              </p>
+            </div>
+            <img src="./images/about.jpg" />
           </div>
-          <div class="about-content">
+          <!-- <div class="about-content">
             <h1>About Us</h1>
             <p>
               Blitzfa eCommerce is a brainchild of people passionate about the
@@ -101,7 +124,7 @@
               spend your life alone just scrolling mindless content. Experience
               a lifestyle that keeps you at the top!
             </p>
-          </div>
+          </div> -->
         </div>
       </div>
     </section>
@@ -193,7 +216,16 @@
       <div class="inner-footer">
         <!--  for company name and description -->
         <div class="footer-items">
-          <h1>Blitzfa</h1>
+          <h1
+            style="
+              justify-content: start;
+              display: flex;
+              align-items: center;
+              gap: 10px;
+            "
+          >
+            <img class="logo-img" src="./images/logo.png" /> Blitzfa
+          </h1>
           <p>Design Your Living</p>
           <!-- <div class="social-media">
             <a class="social-media-icon"
