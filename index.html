@@ -32,7 +32,7 @@
 
             <li class="dropdown">
               <button class="dropbtn">
-                products
+                Products
                 <i class="fa fa-caret-down" aria-hidden="true"></i>
               </button>
               <div class="dropdown-content">
@@ -80,13 +80,14 @@
           <div class="hero-content">
             <h1>“Design your living!”</h1>
             <p>
-              We build technologies that drive you to your nostalgic place. Come
-              join us in connecting with the world like never before, living
-              life like never before, exploring like never before.
+              We build technologies that give you a canvas to design your life
+              the way you want. Come join us in connecting with the world like
+              never before, innovating like never before, exploring like never
+              before.
             </p>
-            <button class="hero-button">
-              <a href="#products">Explore Products</a>
-            </button>
+            <a href="#products">
+              <button class="hero-button">Explore Products</button>
+            </a>
           </div>
         </div>
       </div>
@@ -104,15 +105,14 @@
             <div class="about-content">
               <h1>About Us</h1>
               <p>
-                Blitzfa eCommerce is a brainchild of people passionate about the
-                vision of a connected, productive, and prosperous world. We are
-                truly inspired by our rich cultural heritage and we want to make
-                it richer in the 21st century and beyond. We dont want you to
-                spend your life alone just scrolling mindless content.
-                Experience a lifestyle that keeps you at the top!
+                Blitzfa eCommerce lives its vision everyday of a connected,
+                productive, and prosperous world. We strive to bring quality
+                products, revolutionizing and innovating your living. We dont
+                want you to spend your life alone just scrolling mindless
+                content. Experience a lifestyle that keeps you at the top!
               </p>
             </div>
-            <img src="./images/about.jpg" />
+            <img src="./images/about-img.png" />
           </div>
           <!-- <div class="about-content">
             <h1>About Us</h1>
@@ -132,7 +132,7 @@
       <div class="container">
         <div class="row reverse">
           <div class="vision-img">
-            <img src="./images/about-img.png" />
+            <img src="./images/vision.jpeg" />
           </div>
           <div class="vision-content">
             <h1>Vision</h1>
@@ -153,10 +153,10 @@
       <div class="container">
         <h1>Our Products</h1>
         <p class="product-subheading">
-          Dive into life with our suit of products that adds a new dimension to
-          your looks, to your space, to your people. Explore and be a part of
+          Dive into life with our suit of products that add a new dimension to
+          your looks, to your space, to your people. Explore and be part of
           building a new future, where your time is valued and gets you
-          unthinkable experiences!
+          experiences unimaginable before!
         </p>
         <div class="product-card">
           <img src="./images/indusvale.png" />
@@ -170,7 +170,12 @@
                 how they do business, and everything under the sun.
               </p>
             </div>
-            <button><a href="./products/indusvale.html">Know more</a></button>
+            <a
+              href="./products/indusvale.html"
+              style="width: 100%; margin: 20px"
+            >
+              <button style="margin: 0">Know more</button></a
+            >
             <!-- <div class="know-more">
               <div style="text-align: end"><a href="#">Know more</a></div>
             </div> -->
@@ -189,24 +194,25 @@
           <div class="form-group">
             <div class="field-group">
               <label for="name">Name</label>
-              <input type="text" name="Name" />
+              <input type="text" name="Name" required />
             </div>
             <div class="field-group">
               <label for="email">Email</label>
-              <input type="text" name="email" />
+              <input type="text" name="email" required />
             </div>
           </div>
           <div class="field-group">
             <label for="ph-number">Phone No.</label>
-            <input type="text" name="ph-number" />
+            <input type="tel" name="ph-number" required />
           </div>
           <div class="field-group">
             <label for="subject">Subject</label>
-            <input type="text" name="subject" />
+            <input type="text" name="subject" required />
           </div>
           <div class="field-group">
             <label for="message">Your Message</label>
-            <textarea rows="10" name="message" id="message"> </textarea>
+            <textarea rows="10" name="message" id="message" required>
+            </textarea>
           </div>
           <button type="submit">Submit</button>
         </form>
