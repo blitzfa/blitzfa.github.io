@@ -10,12 +10,7 @@
       integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9"
       crossorigin="anonymous"
     />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
-    />
     <link rel="stylesheet" href="navbar.css" />
-    <link rel="stylesheet" href="footer.css" />
     <style>
       @font-face {
         font-family: Anton;
@@ -95,7 +90,6 @@
         bottom: -50%;
         top: -50%;
         transform: translateY(-50%);
-        z-index: -10;
       }
       .right-overlay {
         position: absolute;
@@ -103,7 +97,6 @@
         bottom: -50%;
         top: -50%;
         transform: translateY(-20%);
-        z-index: -10;
       }
       .about-us,
       .product-desc,
@@ -115,7 +108,7 @@
         text-align: center;
       }
       .about-card img {
-        width: 100%;
+        width: auto;
         height: 300px;
       }
       /* Products */
@@ -206,14 +199,114 @@
       label {
         padding: 0.5rem 0;
       }
+      /* Footer */
 
-      /* Responsive */
-      @media screen and (max-width: 992px) {
-        #hero {
-          padding: 20vh;
+      /* FOOTER */
+      .footer {
+        width: 100%;
+        background: #3a98b9;
+        display: block;
+      }
+
+      .inner-footer {
+        width: 95%;
+        margin: auto;
+        padding: 30px 10px;
+        display: flex;
+        flex-wrap: wrap;
+        box-sizing: border-box;
+        justify-content: center;
+      }
+
+      .footer-items {
+        width: 25%;
+        padding: 10px 20px;
+        box-sizing: border-box;
+        color: #fff;
+      }
+
+      .footer-items p {
+        font-size: 16px;
+        text-align: justify;
+        line-height: 25px;
+        color: #ffd3a3;
+      }
+
+      .footer-items h1 {
+        color: #fff;
+      }
+
+      .border1 {
+        height: 3px;
+        width: 40px;
+        background: #ffd3a3;
+        color: #ffd3a3;
+        background-color: #ffd3a3;
+        border: 0px;
+      }
+
+      .footer-items ul {
+        list-style: none;
+        color: #fff;
+        font-size: 14px;
+        letter-spacing: 0.5px;
+      }
+
+      .footer-items ul a {
+        text-decoration: none;
+        outline: none;
+        color: #fff;
+        transition: 0.3s;
+      }
+
+      .footer-items ul a:hover {
+        color: #ffd3a3;
+      }
+
+      .footer-items ul li {
+        margin: 10px 0;
+        height: 25px;
+      }
+
+      .footer-items li i {
+        margin-right: 20px;
+      }
+
+      .social-media {
+        display: flex;
+        margin: 2rem 0;
+        gap: 1rem;
+      }
+
+      .social-media-icon i {
+        font-size: 2rem;
+        transition: transform 0.5s ease;
+      }
+
+      .social-media i:hover {
+        transform: scale(1.2);
+      }
+      .footer-bottom {
+        padding: 10px;
+        background: #00121b;
+        color: #fff;
+        font-size: 12px;
+        text-align: center;
+      }
+
+      /* for tablet mode view */
+
+      @media screen and (max-width: 1275px) {
+        .footer-items {
+          width: 50%;
         }
-        #about .about-card img {
-          width: auto;
+      }
+
+      /* for mobile screen view */
+
+      @media screen and (max-width: 660px) {
+        .footer-items {
+          width: 100%;
         }
       }
     </style>
@@ -285,7 +378,7 @@
     <section id="hero">
       <div class="container h-100">
         <div class="row h-100 justify-content-center align-items-center">
-          <div class="col-md-12 col-lg-5">
+          <div class="col-5">
             <h1 class="header">Design Your Living</h1>
             <p class="header-p">
               We build technologies that give you a canvas to design your life
@@ -295,8 +388,8 @@
             </p>
             <button class="hero-btn">Explore Products</button>
           </div>
-          <div class="col-7 d-none d-lg-block">
-            <img src="./images/hero2.png" class="w-100 my-5" />
+          <div class="col-7">
+            <img src="./images2/hero.png" class="w-100" />
           </div>
         </div>
       </div>
@@ -305,8 +398,8 @@
       <div class="container">
         <div class="row">
           <h2 class="about-header text-center">
-            <img src="./images/left-overlay.png" class="left-overlay" />
-            <img src="./images/right-overlay.png" class="right-overlay" />
+            <img src="./images2/left-overlay.png" class="left-overlay" />
+            <img src="./images2/right-overlay.png" class="right-overlay" />
             About
           </h2>
         </div>
@@ -320,21 +413,21 @@
           </p>
         </div>
         <div class="row justify-content-center mt-5">
-          <div class="col-lg-4 col-12">
+          <div class="col-4">
             <div class="about-card gap-5">
-              <img src="./images/mission.png" alt="mission" />
+              <img src="./images2/mission.png" alt="mission" />
               <h2 class="mt-3">Our Mission</h2>
             </div>
           </div>
-          <div class="col-lg-4 col-12">
+          <div class="col-4">
             <div class="about-card">
-              <img src="./images/vision.png" alt="vision" />
+              <img src="./images2/vision.png" alt="vision" />
               <h2 class="mt-3">Our Vision</h2>
             </div>
           </div>
-          <div class="col-lg-4 col-12">
+          <div class="col-4">
             <div class="about-card">
-              <img src="./images/values.png" alt="values" />
+              <img src="./images2/values.png" alt="values" />
               <h2 class="mt-3">Our Values</h2>
             </div>
           </div>
@@ -345,8 +438,8 @@
       <div class="container">
         <div class="row">
           <h2 class="about-header text-center">
-            <img src="./images/left-overlay.png" class="left-overlay" />
-            <img src="./images/right-overlay.png" class="right-overlay" />
+            <img src="./images2/left-overlay.png" class="left-overlay" />
+            <img src="./images2/right-overlay.png" class="right-overlay" />
             Our Products
           </h2>
         </div>
@@ -364,7 +457,7 @@
         <div class="row justify-content-center">
           <img
             class="indusvale-img"
-            src="./images/indusvale.png"
+            src="./images2/indusvale.png"
             alt="Indusvale"
           />
         </div>
@@ -378,10 +471,10 @@
           <button class="product-btn mt-3">Know more</button>
         </div>
         <div class="row justify-content-center align-items-center">
-          <div class="col-12 col-lg-4 text-center">
+          <div class="col-4">
             <img
               class="indusvale-mobile-app-img"
-              src="./images/OnePlus 10T.png"
+              src="./images2/OnePlus 10T.png"
               alt="Indusvale Mobile App"
             />
           </div>
@@ -390,7 +483,7 @@
             <div class="d-flex align-items-center gap-2">
               <img
                 class="indusvale-logo"
-                src="./images/indusvale-logo.png"
+                src="./images2/indusvale-logo.png"
                 alt=""
               />
               <h2>APP</h2>
@@ -437,52 +530,72 @@
       </div>
     </section>
     <footer class="footer mt-5">
-      <div class="container">
-        <div class="footer-heading row py-5">
-          <a
-            href="/"
-            class="d-flex justify-content-start align-items-center gap-2"
-            ><img class="logo-img" src="./images/logo.png" />
-            <h1 class="m-0">Blitzfa</h1>
-          </a>
+      <div class="inner-footer">
+        <!--  for company name and description -->
+        <div class="footer-items">
+          <h1
+            style="
+              justify-content: start;
+              display: flex;
+              align-items: center;
+              gap: 10px;
+            "
+          >
+            <img class="logo-img" src="./images/logo.png" /> Blitzfa
+          </h1>
+          <p>Design Your Living</p>
+          <!-- <div class="social-media">
+            <a class="social-media-icon"
+              ><i class="fab fa-google" aria-hidden="true"></i
+            ></a>
+            <a class="social-media-icon"
+              ><i class="fab fa-instagram" aria-hidden="true"></i
+            ></a>
+          </div> -->
         </div>
-        <div class="row">
-          <div class="col-5">
-            <ul>
-              <li class="my-3">
-                <i class="fa fa-map-marker" aria-hidden="true"></i>
-                <p class="m-0">Mumbai, Maharashtra</p>
-              </li>
-              <li>
-                <i class="fa fa-envelope" aria-hidden="true"></i>
-                <p class="m-0">ecommerce@blitzfa.org</p>
-              </li>
-            </ul>
-          </div>
-          <div class="col-4">
-            <h3>Our Information</h3>
-            <div class="border1"></div>
-            <!--for the underline -->
-            <ul>
-              <a href="/" class="my-3 d-block"><li>Home</li></a>
-              <a href="#about" class="my-3 d-block"><li>About Us</li></a>
-              <a href="#products" class="my-3 d-block"><li>Products</li></a>
-              <a href="#contact" class="my-3 d-block"><li>Contact Us</li></a>
-            </ul>
-          </div>
-          <div class="col-3">
-            <h3>Our Products</h3>
-            <div class="border1"></div>
-            <!--for the underline -->
-            <ul>
-              <a href="./products/indusvale.html" class="my-3 d-block"
-                ><li>Indusvale</li></a
-              >
-            </ul>
-          </div>
+
+        <!--  for quick links  -->
+        <div class="footer-items">
+          <h3>Quick Links</h3>
+          <div class="border1"></div>
+          <!--for the underline -->
+          <ul>
+            <a href="/"><li>Home</li></a>
+            <a href="#about"><li>About Us</li></a>
+            <a href="#products"><li>Products</li></a>
+            <a href="#contact"><li>Contact Us</li></a>
+          </ul>
         </div>
-        <div class="footer-bottom">All rights reservered @ 2023</div>
+
+        <!--  for some other links -->
+        <div class="footer-items">
+          <h3>Products</h3>
+          <div class="border1"></div>
+          <!--for the underline -->
+          <ul>
+            <a href="./products/indusvale.html"><li>Indusvale</li></a>
+          </ul>
+        </div>
+
+        <!--  for contact us info -->
+        <div class="footer-items">
+          <h3>Contact us</h3>
+          <div class="border1"></div>
+          <ul>
+            <li>
+              <i class="fa fa-map-marker" aria-hidden="true"></i> Mumbai,
+              Maharashtra
+            </li>
+            <li>
+              <i class="fa fa-envelope" aria-hidden="true"></i
+              >ecommerce@blitzfa.org
+            </li>
+          </ul>
+        </div>
       </div>
+
+      <!--   Footer Bottom start  -->
+      <div class="footer-bottom">Copyright &copy; Blitzfa</div>
     </footer>
   </body>
 </html>
