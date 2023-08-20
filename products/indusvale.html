@@ -101,6 +101,11 @@
       .product-desc {
         width: 65%;
       }
+      @media screen and (max-width: 516px) {
+        .left-overlay {
+          display: none;
+        }
+      }
     </style>
   </head>
   <body>
@@ -121,7 +126,7 @@
               </a>
             </div>
             <ul>
-              <li><a href="#about">About Us</a></li>
+              <li><a href="/#about">About Us</a></li>
               <!-- <li><a href="#products">Products</a></li> -->
 
               <li class="dropdown">
@@ -134,7 +139,7 @@
                 </div>
               </li>
 
-              <li><a href="#contact">Contact Us</a></li>
+              <li><a href="/#contact">Contact Us</a></li>
             </ul>
             <button class="hamburger">
               <?xml version="1.0" encoding="utf-8"?><!-- Uploaded to: SVG Repo, www.svgrepo.com, Generator: SVG Repo Mixer Tools -->
@@ -196,33 +201,35 @@
             </p>
             <button>Explore</button>
           </div>
-          <div class="row m-0 mt-5 justify-content-center align-items-center">
-            <div class="col-5">
+          <div
+            class="row m-0 mt-5 justify-content-center align-items-center flex-lg-row flex-column-reverse"
+          >
+            <div class="col-12 col-lg-5">
               <p>
                 IndusVale, found its origin as the brainchild of Indians
                 passionate about disrupting the idea of lifestyle from the
                 lenses of a futuristic Indian brand.
               </p>
             </div>
-            <div class="col-5">
+            <div class="col-12 col-lg-5">
               <img class="w-100" src="../images/image 8.png" alt="" />
             </div>
           </div>
           <div
-            class="row m-0 mt-5 flex-row-reverse justify-content-center align-items-center"
+            class="row m-0 mt-5 flex-lg-row-reverse justify-content-center align-items-center flex-column-reverse"
           >
-            <div class="col-4">
+            <div class="col-12 col-lg-4">
               <p>
                 A brand that conveys the picture of India from what was, what
                 is, and what it ought to be.
               </p>
             </div>
-            <div class="col-6">
+            <div class="col-12 col-lg-6">
               <img class="w-100" src="../images/indusvale.png" alt="" />
             </div>
           </div>
           <div class="row mt-5 justify-content-center">
-            <div class="col-10">
+            <div class="col-12 col-lg-10">
               <p class="text-center">
                 Adopting the name from Indus Valley Civilization, IndusVale is
                 about the people, and how they express themselves in their
@@ -233,21 +240,23 @@
             </div>
           </div>
           <div
-            class="row m-0 mt-5 flex-row-reverse justify-content-center align-items-center"
+            class="row m-0 mt-5 flex-lg-row-reverse justify-content-center align-items-center flex-column-reverse"
           >
-            <div class="col-5">
+            <div class="col-12 col-lg-5">
               <p>
                 So when IndusVale wants to develop lifestype products, we
                 understand that we need to have keen focus on bringing
                 innovative products.
               </p>
             </div>
-            <div class="col-5">
+            <div class="col-12 col-lg-5">
               <img class="w-100" src="../images/image 9.png" alt="" />
             </div>
           </div>
-          <div class="row m-0 mt-5 justify-content-center align-items-center">
-            <div class="col-5">
+          <div
+            class="row m-0 mt-5 justify-content-center align-items-center flex-lg-row flex-column-reverse"
+          >
+            <div class="col-12 col-lg-5">
               <p>
                 We want to change the landscape in design and manufacturing when
                 we bring a platform to our people. We do this by introducing
@@ -257,7 +266,7 @@
               </p>
               <button>Explore</button>
             </div>
-            <div class="col-5">
+            <div class="col-12 col-lg-5">
               <img class="w-100" src="../images/image 8.png" alt="" />
             </div>
           </div>
@@ -274,8 +283,8 @@
             <h1 class="m-0">Blitzfa</h1>
           </a>
         </div>
-        <div class="row">
-          <div class="col-5">
+        <div class="row m-0 mb-5">
+          <div class="col-12 col-sm-5 mt-2">
             <ul>
               <li class="my-3">
                 <i class="fa fa-map-marker" aria-hidden="true"></i>
@@ -287,30 +296,29 @@
               </li>
             </ul>
           </div>
-          <div class="col-4">
+          <div class="col-6 col-sm-4 mt-2">
             <h3>Our Information</h3>
             <div class="border1"></div>
             <!--for the underline -->
             <ul>
               <a href="/" class="my-3 d-block"><li>Home</li></a>
-              <a href="#about" class="my-3 d-block"><li>About Us</li></a>
-              <a href="#products" class="my-3 d-block"><li>Products</li></a>
-              <a href="#contact" class="my-3 d-block"><li>Contact Us</li></a>
+              <a href="/#about" class="my-3 d-block"><li>About Us</li></a>
+              <a href="/#products" class="my-3 d-block"><li>Products</li></a>
+              <a href="/#contact" class="my-3 d-block"><li>Contact Us</li></a>
             </ul>
           </div>
-          <div class="col-3">
+          <div class="col-6 col-sm-3 mt-2">
             <h3>Our Products</h3>
             <div class="border1"></div>
             <!--for the underline -->
             <ul>
-              <a href="./products/indusvale.html" class="my-3 d-block"
-                ><li>Indusvale</li></a
-              >
+              <a href="#" class="my-3 d-block"><li>Indusvale</li></a>
             </ul>
           </div>
         </div>
         <div class="footer-bottom">All rights reservered @ 2023</div>
       </div>
     </footer>
+    <script src="./navbar.js"></script>
   </body>
 </html>
