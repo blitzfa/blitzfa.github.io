@@ -2,6 +2,7 @@
 .footer {
   width: 100%;
   background: #3a98b9;
+  background: var(--primaryColor);
   display: block;
   color: white;
 }
@@ -102,7 +103,8 @@
 }
 .footer-bottom {
   padding: 10px;
-  background-color: #3a98b9;
+  background-color: var(--primaryColor);
+  /* background-color: #3a98b9; */
   border-top: 1px solid white;
   color: #fff;
   font-size: 1rem;
