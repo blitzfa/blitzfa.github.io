@@ -41,7 +41,7 @@ a:active {
   margin: 0;
 }
 .nav-items ul li {
-  font-size: 1.125rem;
+  font-size: 0.8rem;
 }
 
 .logo a {
@@ -52,12 +52,12 @@ a:active {
 }
 
 .nav-items .logo {
-  font-size: 2.18rem;
+  font-size: 1.5rem;
   font-family: Bungee;
 }
 .logo-img {
-  width: 66px;
-  height: 50px;
+  width: 50px;
+  height: 40px;
 }
 
 .hamburger {
