@@ -1,0 +1,83 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+  }
+  
+  header h1 {
+    text-align: center;
+    color: #d38fc3;
+    margin-top: 20px;
+  }
+  
+  .filter-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 20px;
+    gap: 10px;
+  }
+  
+  .filter-section select {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  .search-icon {
+    background: none;
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+  }
+  
+  .accordion {
+    max-width: 800px;
+    margin: 0 auto;
+    border-top: 2px solid #333;
+  }
+  
+  .accordion-item {
+    border-bottom: 2px solid #333;
+  }
+  
+  .accordion-item h2 {
+    padding: 15px;
+    margin: 0;
+    cursor: pointer;
+    background-color: #f8f8f8;
+  }
+  
+  .accordion-content {
+    max-height: 0; /* Initially hidden */
+    overflow: hidden; /* Hide content when collapsed */
+    transition: max-height 0.3s ease-out; /* Smooth animation */
+    padding: 0 15px; /* Set padding for spacing */
+    background-color: #fff;
+  }
+  
+  .accordion-content.open {
+    max-height: 200px; /* Set a max height large enough to fit content */
+    padding: 15px; /* Add padding when open */
+  }
+
+  /* Accordion smooth animation */
+.accordion {
+    transition: opacity 0.4s ease-in-out, max-height 0.4s ease-in-out;
+    overflow: hidden;
+    opacity: 1;
+    max-height: 1000px; /* High enough to fit content */
+  }
+  
+  .accordion.hidden {
+    opacity: 0;
+    max-height: 0; /* Fully collapsed */
+    pointer-events: none;
+  }
+  
+  .accordion.visible {
+    opacity: 1;
+    max-height: 1000px; /* Adjust based on content dynamically */
+    pointer-events: all;
+  }
+  
