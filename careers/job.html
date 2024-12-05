@@ -136,7 +136,7 @@
         text-decoration: underline;
       }
 
-      .logo-img{
+      .logo-img {
         width: 100px;
       }
 
@@ -158,16 +158,131 @@
           font-size: 0.9rem;
         }
       }
+      /* Application Form Styles */
+      form-container {
+        background: #ffffff;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        width: 400px;
+      }
+
+      h1 {
+        text-align: center;
+        color: #333;
+      }
+
+      form {
+        display: flex;
+        flex-direction: column;
+      }
+
+      fieldset {
+        border: 1px solid #ddd;
+        padding: 15px;
+        margin-bottom: 15px;
+        border-radius: 5px;
+      }
+
+      legend {
+        font-weight: bold;
+        color: #555;
+      }
+
+      label {
+        margin-top: 10px;
+        font-size: 14px;
+      }
+
+      input {
+        box-sizing: border-box;
+        margin-top: 5px;
+        padding: 8px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        font-size: 14px;
+        width: 100%;
+      }
+
+      button {
+        padding: 10px;
+        background-color: #000;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        font-size: 16px;
+        cursor: pointer;
+      }
+
+      .hidden {
+        display: none;
+        text-align: center;
+        color: green;
+        font-weight: bold;
+      }
     </style>
   </head>
   <body>
     <main>
-      <header style="text-align: center;">
-        <img class="logo-img" src="../images/logo-black.png">
+      <header style="text-align: center">
+        <img class="logo-img" src="../images/logo-black.png" />
       </header>
       <section id="job-details">
         <!-- Job details will be populated dynamically -->
       </section>
+      <div class="form-container">
+        <h1>Job Application Form</h1>
+        <form id="jobApplicationForm">
+          <!-- Personal Information -->
+          <fieldset>
+            <legend>Personal Information</legend>
+            <label for="firstName">First Name:</label>
+            <input type="text" id="firstName" name="firstName" required />
+
+            <label for="lastName">Last Name:</label>
+            <input type="text" id="lastName" name="lastName" required />
+
+            <label for="dob">Date of Birth:</label>
+            <input type="date" id="dob" name="dob" required />
+          </fieldset>
+
+          <!-- Contact Information -->
+          <fieldset>
+            <legend>Contact Information</legend>
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required />
+
+            <label for="phone">Phone Number:</label>
+            <input type="tel" id="phone" name="phone" required />
+          </fieldset>
+
+          <!-- Resume Upload -->
+          <!-- <fieldset>
+            <legend>Upload Resume</legend>
+            <label for="resume">Choose File:</label>
+            <input
+              type="file"
+              id="resume"
+              name="resume"
+              accept=".pdf,.doc,.docx"
+              required
+            />
+          </fieldset> -->
+
+          <fieldset>
+            <legend>Resume</legend>
+            <label for="resumeLink">Resume Link:</label>
+            <input type="url" id="resumeLink" name="resumeLink" placeholder="https://example.com/resume" required>
+          </fieldset>
+
+          <!-- Submit -->
+          <button type="submit">Submit Application</button>
+        </form>
+        <p id="successMessage" class="hidden">
+          Your application has been submitted successfully!
+        </p>
+      </div>
+
       <a href="index.html">Back to Openings</a>
     </main>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.3.2/papaparse.min.js"></script>
@@ -181,19 +296,22 @@
           header: true, // Automatically map rows to keys using the header
           dynamicTyping: false, // Convert numeric fields to numbers
           quoteChar: '"',
-          escapeChar: '\\',
+          // escapeChar: "\\",
         });
 
         if (parsedData.errors.length) {
           console.error("Error parsing CSV:", parsedData.errors);
         }
-        const data =  parsedData.data.map((item, index) => {
-          return {id: index, ...Object.entries(item).reduce((acc, [key, value]) => {
-            acc[key.toLowerCase()] = value;
-            return acc;
-        }, {})};
-        })
-        return data
+        const data = parsedData.data.map((item, index) => {
+          return {
+            id: index,
+            ...Object.entries(item).reduce((acc, [key, value]) => {
+              acc[key.toLowerCase()] = value;
+              return acc;
+            }, {}),
+          };
+        });
+        return data;
       }
 
       // Load job details based on URL query
@@ -219,27 +337,31 @@
         jobDetails.innerHTML = `
           <h2>${job.job} (${job.location})</h2>
           <h3>Category: ${job.category}</h3>
-          <ul>${job.description.split("\n")
+          <ul>${job.description
+            .split("\n")
             .map((r) => {
-              return r ? `<p>${r.trim()}</p>`: "<br/>"
+              return r ? `<p>${r.trim()}</p>` : "<br/>";
             })
             .join("")}</ul>
           <h4>Responsibilities:</h4>
-          <ul>${job.responsibilities.split("\n")
+          <ul>${job.responsibilities
+            .split("\n")
             .map((r) => {
-              return r ? `<li>${r.trim()}</li>`: "<br/>"
+              return r ? `<li>${r.trim()}</li>` : "<br/>";
             })
             .join("")}</ul>
           <h4>Experience:</h4>
-          <ul>${job.experience.split("\n")
+          <ul>${job.experience
+            .split("\n")
             .map((r) => {
-              return r ? `<li>${r.trim()}</li>` : "<br/>"
+              return r ? `<li>${r.trim()}</li>` : "<br/>";
             })
             .join("")}</ul>
           <h4>Benefits:</h4>
-          <ul>${job.benefits.split("\n")
+          <ul>${job.benefits
+            .split("\n")
             .map((r) => {
-              return r ?`<li>${r.trim()}</li>`: "<br/>"
+              return r ? `<li>${r.trim()}</li>` : "<br/>";
             })
             .join("")}</ul>
         `;
@@ -247,6 +369,43 @@
 
       // Load job details on page load
       document.addEventListener("DOMContentLoaded", loadJobDetails);
+
+      // Job Application form
+      document
+        .getElementById("jobApplicationForm")
+        .addEventListener("submit", async function (e) {
+          e.preventDefault(); // Prevent the default form submission
+
+          const formData = {}; // Object to store the form data
+          const formElements = this.elements; // All form elements in the form
+
+          for (let element of formElements) {
+            if (element.name) {
+              // Only include elements with a `name` attribute
+              formData[element.name] =
+                element.type === "file"
+                  ? element.files[0] // Handle file inputs
+                  : element.value; // Handle other input types
+            }
+          }
+
+        const params = new URLSearchParams(window.location.search);
+        const jobId = parseInt(params.get("id"), 10);
+
+        const jobs = await loadCSV();
+        const job = jobs[jobId];
+
+        formData.jobId = jobId;
+        formData.jobTitle = job.job;
+        fetch("https://tofpvow3lygbircovqm3qr3gti0uzcpb.lambda-url.ap-south-1.on.aws/",{ method: 'POST', body: JSON.stringify(formData)}).then((res)=> res.json()).then(data => {
+          setTimeout(() => {
+            window.location.href = './thank-you.html'; // Redirect to the Thank You page
+          }, 500);
+        }).catch((err)=>{
+          alert("Something went Wrong, Please try again later!");
+          console.log("error", err);
+        })
+        });
     </script>
   </body>
 </html>
