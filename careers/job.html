@@ -181,6 +181,7 @@
           header: true, // Automatically map rows to keys using the header
           dynamicTyping: false, // Convert numeric fields to numbers
           quoteChar: '"',
+          escapeChar: '\\',
         });
 
         if (parsedData.errors.length) {
@@ -218,25 +219,25 @@
         jobDetails.innerHTML = `
           <h2>${job.job} (${job.location})</h2>
           <h3>Category: ${job.category}</h3>
-          <ul>${job.description.split("\r")
+          <ul>${job.description.split("\n")
             .map((r) => {
               return r ? `<p>${r.trim()}</p>`: "<br/>"
             })
             .join("")}</ul>
           <h4>Responsibilities:</h4>
-          <ul>${job.responsibilities.split("\r\n")
+          <ul>${job.responsibilities.split("\n")
             .map((r) => {
               return r ? `<li>${r.trim()}</li>`: "<br/>"
             })
             .join("")}</ul>
           <h4>Experience:</h4>
-          <ul>${job.experience.split("\r\n")
+          <ul>${job.experience.split("\n")
             .map((r) => {
               return r ? `<li>${r.trim()}</li>` : "<br/>"
             })
             .join("")}</ul>
           <h4>Benefits:</h4>
-          <ul>${job.benefits.split("\r\n")
+          <ul>${job.benefits.split("\n")
             .map((r) => {
               return r ?`<li>${r.trim()}</li>`: "<br/>"
             })
