@@ -217,6 +217,7 @@
         <div class="footer-bottom">All rights reservered @ 2023</div>
       </div>
     </footer>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.3.2/papaparse.min.js"></script>
     <script>
       // Fetch and parse CSV file
       async function loadCSV() {
@@ -224,17 +225,33 @@
         const csvData = await response.text();
 
         // Parse CSV into an array of objects
-        const rows = csvData.split("\n").slice(1); // Skip header row
-        const jobs = rows.map((row, index) => {
-          const [category, job, location, description] = row.split(",");
-          return {
-            id: index, // Add a unique ID for each job
-            category: category.trim(),
-            job: job.trim(),
-            location: location.trim(),
-            description: description.trim(),
-          };
+        const parsedData = Papa.parse(csvData, {
+          header: true, // Automatically map rows to keys using the header
+          dynamicTyping: false, // Convert numeric fields to numbers
+          quoteChar: '"',
         });
+
+        if (parsedData.errors.length) {
+          console.error("Error parsing CSV:", parsedData.errors);
+        }
+        // const rows = csvData.split("\n").slice(1); // Skip header row
+        // const something = rows.map((row, index) => {
+        //   const [category, job, location, description] = row.split(",");
+        //   return {
+        //     id: index, // Add a unique ID for each job
+        //     category: category.trim(),
+        //     job: job.trim(),
+        //     location: location.trim(),
+        //     description: description.trim(),
+        //   };
+        // });
+
+        const jobs = parsedData.data.map((item, index) => {
+          return {id: index, ...Object.entries(item).reduce((acc, [key, value]) => {
+            acc[key.toLowerCase()] = value;
+            return acc;
+        }, {})};
+        })
 
         // Populate filters
         populateFilters(jobs);

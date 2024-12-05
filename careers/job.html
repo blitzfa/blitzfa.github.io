@@ -170,170 +170,29 @@
       </section>
       <a href="index.html">Back to Openings</a>
     </main>
-    <!-- <script>
-      // Fetch and parse CSV file
-      async function loadCSV() {
-        const response = await fetch("./careers.csv"); // Replace with the actual path to your CSV file
-        const csvData = await response.text();
-
-        // Parse CSV into an array of objects
-        const rows = csvData.split("\n").slice(1); // Skip header row
-        return rows.map((row, index) => {
-          const [category, job, location, description] = row.split(",");
-          return {
-            id: index,
-            category: category.trim(),
-            job: job.trim(),
-            location: location.trim(),
-            description: description.trim(),
-          };
-        });
-      }
-
-      // Load job details based on URL query
-      async function loadJobDetails() {
-        const params = new URLSearchParams(window.location.search);
-        const jobId = parseInt(params.get("id"), 10);
-
-        if (isNaN(jobId)) {
-          document.getElementById("job-details").textContent = "Invalid Job ID";
-          return;
-        }
-
-        const jobs = await loadCSV();
-        const job = jobs.find((j) => j.id === jobId);
-
-        if (!job) {
-          document.getElementById("job-details").textContent = "Job not found";
-          return;
-        }
-
-        // Display job details
-        const jobDetails = document.getElementById("job-details");
-        jobDetails.innerHTML = `
-    <h2>${job.job} (${job.location})</h2>
-    <h3>Category: ${job.category}</h3>
-    <p>${job.description}</p>
-  `;
-      }
-
-      // Load job details on page load
-      document.addEventListener("DOMContentLoaded", loadJobDetails);
-    </script> -->
-    <!-- <script>
-      async function loadCSV() {
-        const response = await fetch("./careers.csv"); // Replace with the actual path to your CSV file
-        const csvData = await response.text();
-
-        // Parse CSV into an array of objects
-        const rows = csvData.split("\n").slice(1); // Skip header row
-        return rows.map((row, index) => {
-          const [
-            category,
-            job,
-            location,
-            description,
-            responsibilities,
-            experience,
-            benefits,
-          ] = row.split(",");
-          return {
-            id: index,
-            category: category.trim(),
-            job: job.trim(),
-            location: location.trim(),
-            description: description.trim(),
-            responsibilities: responsibilities?.trim(),
-            experience: experience?.trim(),
-            benefits: benefits?.trim(),
-          };
-        });
-      }
-
-      async function loadJobDetails() {
-        const params = new URLSearchParams(window.location.search);
-        const jobId = parseInt(params.get("id"), 10);
-
-        if (isNaN(jobId)) {
-          document.getElementById("job-details").textContent = "Invalid Job ID";
-          return;
-        }
-
-        const jobs = await loadCSV();
-        const job = jobs.find((j) => j.id === jobId);
-
-        if (!job) {
-          document.getElementById("job-details").textContent = "Job not found";
-          return;
-        }
-
-        // Display job details
-        const jobDetails = document.getElementById("job-details");
-        jobDetails.innerHTML = `
-          <h2>${job.job} (${job.location})</h2>
-          <h3>Category: ${job.category}</h3>
-          <p>${job.description}</p>
-          <h4>Responsibilities:</h4>
-          <p>${job.responsibilities}</p>
-          <h4>Experience:</h4>
-          <p>${job.experience}</p>
-          <h4>Benefits:</h4>
-          <p>${job.benefits}</p>
-        `;
-      }
-
-      // Load job details on page load
-      document.addEventListener("DOMContentLoaded", loadJobDetails);
-    </script> -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.3.2/papaparse.min.js"></script>
     <script>
-      // Helper function to parse CSV lines with support for quoted fields
-      function parseCSV(csvData) {
-        const rows = csvData.split("\n"); // Split into rows
-        const headers = rows[0].split(","); // Extract the header row
-        const data = rows.slice(1).map((row) => {
-          const values = [];
-          let current = "";
-          let insideQuotes = false;
-
-          for (let i = 0; i < row.length; i++) {
-            const char = row[i];
-
-            if (char === '"') {
-              // Toggle insideQuotes flag if we encounter a double quote
-              if (insideQuotes && row[i + 1] === '"') {
-                current += '"'; // Handle escaped double quotes
-                i++; // Skip the next quote
-              } else {
-                insideQuotes = !insideQuotes;
-              }
-            } else if (char === "," && !insideQuotes) {
-              // If we encounter a comma and we're not inside quotes, it's the end of a field
-              values.push(current.trim());
-              current = "";
-            } else {
-              // Otherwise, add the character to the current value
-              current += char;
-            }
-          }
-          // Push the last field after the loop
-          values.push(current.trim());
-
-          // Map the values to the headers
-          const mappedRow = {};
-          headers.forEach((header, index) => {
-            mappedRow[header.trim()] = values[index] || "";
-          });
-          return mappedRow;
-        });
-
-        return data;
-      }
-
       // Fetch and parse the CSV
       async function loadCSV() {
         const response = await fetch("./careers.csv"); // Replace with the actual path to your CSV file
         const csvData = await response.text();
-        return parseCSV(csvData); // Use the custom parseCSV function
+        // const data = parseCSV(csvData); // Use the custom parseCSV function
+        const parsedData = Papa.parse(csvData, {
+          header: true, // Automatically map rows to keys using the header
+          dynamicTyping: false, // Convert numeric fields to numbers
+          quoteChar: '"',
+        });
+
+        if (parsedData.errors.length) {
+          console.error("Error parsing CSV:", parsedData.errors);
+        }
+        const data =  parsedData.data.map((item, index) => {
+          return {id: index, ...Object.entries(item).reduce((acc, [key, value]) => {
+            acc[key.toLowerCase()] = value;
+            return acc;
+        }, {})};
+        })
+        return data
       }
 
       // Load job details based on URL query
@@ -357,20 +216,30 @@
         // Display job details
         const jobDetails = document.getElementById("job-details");
         jobDetails.innerHTML = `
-          <h2>${job.Job} (${job.Location})</h2>
-          <h3>Category: ${job.Category}</h3>
-          <p>${job.Description}</p>
+          <h2>${job.job} (${job.location})</h2>
+          <h3>Category: ${job.category}</h3>
+          <ul>${job.description.split("\r")
+            .map((r) => {
+              return r ? `<p>${r.trim()}</p>`: "<br/>"
+            })
+            .join("")}</ul>
           <h4>Responsibilities:</h4>
-          <ul>${job.Responsibilities.split(",")
-            .map((r) => `<li>${r.trim()}</li>`)
+          <ul>${job.responsibilities.split("\r\n")
+            .map((r) => {
+              return r ? `<li>${r.trim()}</li>`: "<br/>"
+            })
             .join("")}</ul>
           <h4>Experience:</h4>
-          <ul>${job.Experience.split(",")
-            .map((r) => `<li>${r.trim()}</li>`)
+          <ul>${job.experience.split("\r\n")
+            .map((r) => {
+              return r ? `<li>${r.trim()}</li>` : "<br/>"
+            })
             .join("")}</ul>
           <h4>Benefits:</h4>
-          <ul>${job.Benefits.split(",")
-            .map((r) => `<li>${r.trim()}</li>`)
+          <ul>${job.benefits.split("\r\n")
+            .map((r) => {
+              return r ?`<li>${r.trim()}</li>`: "<br/>"
+            })
             .join("")}</ul>
         `;
       }
