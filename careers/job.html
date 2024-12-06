@@ -290,7 +290,10 @@
       // Fetch and parse the CSV
       async function loadCSV() {
         const response = await fetch("./careers.csv"); // Replace with the actual path to your CSV file
-        const csvData = await response.text();
+        const blob = await response.blob();
+        const arrayBuffer = await blob.arrayBuffer();
+        const decoder = new TextDecoder('utf-8'); // Change encoding here if needed (e.g., 'iso-8859-1')
+        const csvData = decoder.decode(arrayBuffer);
         // const data = parseCSV(csvData); // Use the custom parseCSV function
         const parsedData = Papa.parse(csvData, {
           header: true, // Automatically map rows to keys using the header
